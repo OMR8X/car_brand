@@ -3,13 +3,17 @@ class Brand {
   final String country;
   final String continent;
   final String date;
-  List<String> models;
+  final List<String> models;
+  //
+  bool saved;
+  //
 
   Brand({
     required this.name,
     required this.country,
     required this.continent,
-    this.models = const [],
+    required this.models,
     required this.date,
+    this.saved = false,
   });
 }

@@ -1,6 +1,6 @@
 import 'package:car_brand/models/brand.dart';
 
-List<Brand> brands = [
+List<Brand> brandsDB = [
   Brand(
       name: "Abarth",
       country: "Italy",
@@ -288,10 +288,10 @@ List<Brand> brands = [
       continent: "Europe",
       date: "2006",
       models: [
-        "Cadillac Escalade"
-            "Cadillac CTS"
-            "Cadillac XT5"
-            "Cadillac CT6"
+        "Cadillac Escalade",
+        "Cadillac CTS",
+        "Cadillac XT5",
+        "Cadillac CT6",
       ]),
   Brand(
       name: "Carlsson",
@@ -299,10 +299,10 @@ List<Brand> brands = [
       continent: "Europe",
       date: "1997",
       models: [
-        "Carlsson C25"
-            "Carlsson CK63 RS"
-            "Carlsson CS50 Versailles"
-            "Carlsson Aigner CK65 RS Blanchimont"
+        "Carlsson C25",
+        "Carlsson CK63 RS",
+        "Carlsson CS50 Versailles",
+        "Carlsson Aigner CK65 RS Blanchimont",
       ]),
   Brand(
       name: "Caparo",
@@ -316,10 +316,10 @@ List<Brand> brands = [
       continent: "Asia",
       date: "1997",
       models: [
-        "Caterham Seven 620R"
-            "Caterham Super Seven"
-            "Caterham Seven 310"
-            "Caterham 21"
+        "Caterham Seven 620R",
+        "Caterham Super Seven",
+        "Caterham Seven 310",
+        "Caterham 21",
       ]),
   Brand(
       name: "Changan",
@@ -327,10 +327,10 @@ List<Brand> brands = [
       continent: "North America",
       date: "1911",
       models: [
-        "Changan CS75"
-            "Changan CS35"
-            "Changan UNI-K"
-            "Changan CS15"
+        "Changan CS75",
+        "Changan CS35",
+        "Changan UNI-K",
+        "Changan CS15",
       ]),
   Brand(
       name: "Chery",
@@ -338,10 +338,10 @@ List<Brand> brands = [
       continent: "North America",
       date: "1925",
       models: [
-        "Chery Tiggo 8"
-            "Chery Arrizo 6"
-            "Chery Tiggo 7"
-            "Chery QQ"
+        "Chery Tiggo 8",
+        "Chery Arrizo 6",
+        "Chery Tiggo 7",
+        "Chery QQ",
       ]),
   Brand(
       name: "Chevrolet",
@@ -355,10 +355,10 @@ List<Brand> brands = [
       continent: "Europe",
       date: "1919",
       models: [
-        "Chevrolet Camaro"
-            "Chevrolet Corvette"
-            "Chevrolet Silverado"
-            "Chevrolet Equinox"
+        "Chevrolet Camaro",
+        "Chevrolet Corvette",
+        "Chevrolet Silverado",
+        "Chevrolet Equinox",
       ]),
   Brand(
       name: "Cisitalia",
@@ -366,10 +366,10 @@ List<Brand> brands = [
       continent: "North America",
       date: "2009",
       models: [
-        "Chrysler 300"
-            "Chrysler Pacifica"
-            "Chrysler Voyager"
-            "Chrysler Aspen"
+        "Chrysler 300",
+        "Chrysler Pacifica",
+        "Chrysler Voyager",
+        "Chrysler Aspen",
       ]),
   Brand(
       name: "Citroën",
@@ -377,10 +377,10 @@ List<Brand> brands = [
       continent: "Europe",
       date: "1919",
       models: [
-        "Citroën C3"
-            "Citroën C4 Picasso"
-            "Citroën C5 Aircross"
-            "Citroën DS3"
+        "Citroën C3",
+        "Citroën C4 Picasso",
+        "Citroën C5 Aircross",
+        "Citroën DS3",
       ]),
   Brand(
       name: "Coda",
@@ -394,10 +394,10 @@ List<Brand> brands = [
       continent: "Europe",
       date: "2018",
       models: [
-        "Cupra Ateca"
-            "Cupra Leon"
-            "Cupra Formentor"
-            "Cupra Born"
+        "Cupra Ateca",
+        "Cupra Leon",
+        "Cupra Formentor",
+        "Cupra Born",
       ]),
   Brand(
       name: "Dacia",

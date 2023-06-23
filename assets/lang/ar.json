@@ -11,5 +11,8 @@
     "South America": "جنوب امريكا",
     "North America": "شمال أمريكا",
     "Africa":"أفريقيا",
-    "Australia":"استراليا"
+    "Australia":"استراليا",
+    "saved":"تم الحفظ",
+    "unsaved":"تم الغاء الحفظ",
+    "saved_brands":"ماركات السيارات المحفوظة"
 }

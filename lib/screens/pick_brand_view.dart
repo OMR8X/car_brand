@@ -1,15 +1,20 @@
-import 'package:car_brand/data/brands.dart';
 import 'package:car_brand/models/brand.dart';
 import 'package:car_brand/models/continent.dart';
 import 'package:car_brand/screens/brand_view.dart';
 import 'package:car_brand/services/app_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
+import '../cubits/data_holder/data_holder_cubit.dart';
+import '../services/brand_saver.dart';
 import '../services/custom_page_route.dart';
 
 class PickBrandView extends StatelessWidget {
-  const PickBrandView({super.key, required this.continent});
+  const PickBrandView(
+      {super.key, required this.continent, required this.brands});
   final Continent continent;
+  final List<Brand> brands;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +61,17 @@ class BrandWidget extends StatelessWidget {
             Navigator.of(context).push(CustomPageRoute(
               child: BrandView(brand: brand),
             ));
+          },
+          onLongPress: () {
+            brand.saved ? BrandSaver().unSave(brand) : BrandSaver().save(brand);
+            Fluttertoast.showToast(
+              msg: brand.saved ? "saved".tr(context) : "unsaved".tr(context),
+              gravity: ToastGravity.BOTTOM,
+              textColor: Colors.black,
+              backgroundColor: Theme.of(context).primaryColor,
+              fontSize: 16.0,
+            );
+            context.read<DataHolderCubit>().updat();
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,

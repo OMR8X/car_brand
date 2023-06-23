@@ -1,17 +1,53 @@
+import 'package:car_brand/cubits/data_holder/data_holder_cubit.dart';
 import 'package:car_brand/models/brand.dart';
 import 'package:car_brand/services/app_localization.dart';
+import 'package:car_brand/services/brand_saver.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class BrandView extends StatelessWidget {
+class BrandView extends StatefulWidget {
   const BrandView({super.key, required this.brand});
   final Brand brand;
+
+  @override
+  State<BrandView> createState() => _BrandViewState();
+}
+
+class _BrandViewState extends State<BrandView> {
+  late bool isSaved;
+  @override
+  void initState() {
+    isSaved = widget.brand.saved;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
         foregroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: InkWell(
+          onTap: () {
+            setState(() {
+              isSaved
+                  ? BrandSaver().unSave(widget.brand)
+                  : BrandSaver().save(widget.brand);
+              isSaved = !isSaved;
+            });
+            Fluttertoast.showToast(
+              msg: isSaved ? "saved".tr(context) : "unsaved".tr(context),
+              gravity: ToastGravity.BOTTOM,
+              textColor: Colors.black,
+              backgroundColor: Theme.of(context).primaryColor,
+              fontSize: 16.0,
+            );
+            context.read<DataHolderCubit>().updat();
+          },
+          child: Icon(isSaved ? Icons.remove : Icons.add),
+        ),
       ),
       body: Column(
         children: [
@@ -25,20 +61,20 @@ class BrandView extends StatelessWidget {
                 bottomRight: Radius.circular(24),
               ),
             ),
-            child: BrandDetialsWidget(brand: brand),
+            child: BrandDetialsWidget(brand: widget.brand),
           ),
           const SizedBox(height: 12),
           Text(
-            "${"brand_cars_models".tr(context)} ${brand.name}",
+            "${"brand_cars_models".tr(context)} ${widget.brand.name}",
             style: const TextStyle(fontFamily: "Almarai"),
           ),
           const SizedBox(height: 12),
           Expanded(
               child: ListView.builder(
-            itemCount: brand.models.length,
+            itemCount: widget.brand.models.length,
             itemBuilder: (context, index) => Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [CarModelWidget(name: brand.models[index])],
+              children: [CarModelWidget(name: widget.brand.models[index])],
             ),
           ))
         ],
@@ -74,6 +110,7 @@ class CarModelWidget extends StatelessWidget {
           child: Center(
               child: Text(
             name,
+            textAlign: TextAlign.center,
             style: const TextStyle(fontFamily: "Almarai"),
           )),
         ),
@@ -130,7 +167,7 @@ class BrandDetialsWidget extends StatelessWidget {
               ),
             ),
             Text(
-              "${"brand_year_text".tr(context)} : ${brand.country} ",
+              "${"brand_year_text".tr(context)} : ${brand.date} ",
               style: const TextStyle(
                 fontFamily: "Almarai",
                 color: Colors.white54,

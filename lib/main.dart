@@ -1,5 +1,9 @@
+import 'package:car_brand/cubits/data_holder/data_holder_cubit.dart';
 import 'package:car_brand/screens/pick_continent_view.dart';
+import 'package:car_brand/screens/start_view.dart';
 import 'package:car_brand/services/app_localization.dart';
+import 'package:car_brand/services/localization_provider.dart';
+import 'package:car_brand/services/theme_provider.dart';
 import 'package:car_brand/state/lang/lang_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,50 +19,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => LangCubit()..getSavedLanguage(),
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => LangCubit()..getSavedLanguage(),
+          ),
+          BlocProvider(
+            create: (context) => DataHolderCubit(),
+          ),
+        ],
         child: BlocBuilder<LangCubit, LangState>(
           builder: (context, state) {
             if (state is ChangeLocalState) {
               return MaterialApp(
                 title: 'Cars Brands',
-                // locale: state.locale,
                 supportedLocales: const [Locale("en"), Locale("ar")],
-                localizationsDelegates: const [
-                  AppLocalizations.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                localeResolutionCallback: (deviceLocale, supportedLocales) {
-                  for (var local in supportedLocales) {
-                    if (deviceLocale != null &&
-                        deviceLocale.languageCode == local.languageCode) {
-                      return deviceLocale;
-                    }
-                  }
-                  return supportedLocales.first;
-                },
-                theme: ThemeData(
-                  scaffoldBackgroundColor: const Color(0xffF6F6F6),
-                  cardColor: const Color(0xff252525),
-                  primaryColor: const Color(0xffFFFFFF),
-                  appBarTheme: AppBarTheme(
-                    backgroundColor: const Color(0xffF6F6F6),
-                    shadowColor: Colors.black.withOpacity(0.1),
-                    surfaceTintColor: const Color(0xffF6F6F6),
-                    
-                    titleTextStyle: const TextStyle(
-                      fontFamily: "Almarai",
-                      fontSize: 23,
-                      color: Colors.black,
-                    ),
-                  ),
-                  colorScheme:
-                      ColorScheme.fromSeed(seedColor: const Color(0xff252525)),
-                  useMaterial3: true,
-                ),
-                home: const PickContinentView(),
+                localizationsDelegates:
+                    LocalizationProvider().localizationsDelegates,
+                localeResolutionCallback:
+                    LocalizationProvider().localeResolutionCallback,
+                theme: ThemeProvider().getCurrentTheme(),
+                home: const StartView(),
               );
             }
             return const SizedBox();
