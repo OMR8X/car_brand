@@ -54,15 +54,20 @@ class ContinentWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SvgPicture.asset(
-                continent.imagePath,
-                colorFilter: ColorFilter.mode(continent.color, BlendMode.srcIn),
+              Expanded(
+                child: SvgPicture.asset(
+                  continent.imagePath,
+                  width: MediaQuery.of(context).size.width / 4.5,
+                  colorFilter:
+                      ColorFilter.mode(continent.color, BlendMode.srcIn),
+                ),
               ),
               const SizedBox(height: 12),
               Text(
                 continent.name.tr(context),
                 style: const TextStyle(fontFamily: "Almarai"),
               ),
+              const SizedBox(height: 16),
             ],
           ),
         ),

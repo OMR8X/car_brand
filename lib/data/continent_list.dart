@@ -14,9 +14,14 @@ List<Continent> continents = [
     imagePath: "assets/images/continent/europe.svg",
   ),
   Continent(
-    name: "America",
+    name: "South America",
+    color: const Color.fromARGB(255, 255, 144, 144),
+    imagePath: "assets/images/continent/south_america.svg",
+  ),
+  Continent(
+    name: "North America",
     color: const Color(0xff90EBFF),
-    imagePath: "assets/images/continent/america.svg",
+    imagePath: "assets/images/continent/north_america.svg",
   ),
   // Continent(
   //   name: "Africa",
@@ -24,7 +29,7 @@ List<Continent> continents = [
   //   imagePath: "assets/images/continent/africa.svg",
   // ),
   // Continent(
-  //   name: "A3ustralia",
+  //   name: "Australia",
   //   color: const Color(0xffFFD990),
   //   imagePath: "assets/images/continent/australia.svg",
   // ),

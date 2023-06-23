@@ -2,11 +2,14 @@
     "continents_page_title":"أختر قارة",
     "brands_page_title":"الشركات",
     "brand_country_text":"الدولة",
+    "brand_cars_models":"بعض سيارات",
+
     "brand_year_text":"سنة الأفتتاح",
     "brand_cars_text":"سيارات من الشركة",
     "Asia":"اسيا",
     "Europe":"اوروبا",
-    "America":"شمال أمريكا",
+    "South America": "جنوب امريكا",
+    "North America": "شمال أمريكا",
     "Africa":"أفريقيا",
     "Australia":"استراليا"
 }

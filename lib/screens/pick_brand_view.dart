@@ -1,9 +1,11 @@
 import 'package:car_brand/data/brands.dart';
 import 'package:car_brand/models/brand.dart';
 import 'package:car_brand/models/continent.dart';
+import 'package:car_brand/screens/brand_view.dart';
 import 'package:car_brand/services/app_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
+import '../services/custom_page_route.dart';
 
 class PickBrandView extends StatelessWidget {
   const PickBrandView({super.key, required this.continent});
@@ -51,17 +53,20 @@ class BrandWidget extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
           onTap: () {
-            // Navigator.of(context).push(CustomPageRoute(
-            //   child: PickBrandView(continent: continent),
-            // ));
+            Navigator.of(context).push(CustomPageRoute(
+              child: BrandView(brand: brand),
+            ));
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              // SvgPicture.asset(
-              //   brand.imagePath,
-              //   colorFilter: ColorFilter.mode(brand.color, BlendMode.srcIn),
-              // ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Image.asset(nameToPath(brand),
+                      filterQuality: FilterQuality.low),
+                ),
+              ),
               const SizedBox(height: 12),
               Text(
                 brand.name,
@@ -82,5 +87,9 @@ class BrandWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  nameToPath(Brand brand) {
+    return "assets/images/logo/${brand.name.replaceAll(" ", "_").replaceAll("-", "_").toLowerCase()}.png";
   }
 }
