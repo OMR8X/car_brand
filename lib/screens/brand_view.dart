@@ -53,7 +53,7 @@ class _BrandViewState extends State<BrandView> {
         children: [
           Container(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height / 3.5,
+            height: MediaQuery.of(context).size.height / 2,
             decoration: BoxDecoration(
               color: Theme.of(context).cardColor,
               borderRadius: const BorderRadius.only(
@@ -63,11 +63,11 @@ class _BrandViewState extends State<BrandView> {
             ),
             child: BrandDetialsWidget(brand: widget.brand),
           ),
-          const SizedBox(height: 12),
-          Text(
-            "${"brand_cars_models".tr(context)} ${widget.brand.name}",
-            style: const TextStyle(fontFamily: "Almarai"),
-          ),
+          // const SizedBox(height: 12),
+          // Text(
+          //   "${"brand_cars_models".tr(context)} ${widget.brand.name}",
+          //   style: const TextStyle(fontFamily: "Almarai"),
+          // ),
           const SizedBox(height: 12),
           Expanded(
               child: ListView.builder(
@@ -148,14 +148,14 @@ class BrandDetialsWidget extends StatelessWidget {
                     filterQuality: FilterQuality.low),
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 22),
             Text(
               brand.name,
               style: const TextStyle(
-                fontFamily: "Almarai",
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+                  fontFamily: "Almarai",
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23),
             ),
             const SizedBox(height: 4),
             Text(
@@ -163,7 +163,7 @@ class BrandDetialsWidget extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: "Almarai",
                 color: Colors.white54,
-                fontSize: 12,
+                fontSize: 14,
               ),
             ),
             Text(
@@ -171,7 +171,7 @@ class BrandDetialsWidget extends StatelessWidget {
               style: const TextStyle(
                 fontFamily: "Almarai",
                 color: Colors.white54,
-                fontSize: 12,
+                fontSize: 14,
               ),
             ),
             const SizedBox(height: 12),

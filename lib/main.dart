@@ -1,13 +1,10 @@
 import 'package:car_brand/cubits/data_holder/data_holder_cubit.dart';
-import 'package:car_brand/screens/pick_continent_view.dart';
 import 'package:car_brand/screens/start_view.dart';
-import 'package:car_brand/services/app_localization.dart';
 import 'package:car_brand/services/localization_provider.dart';
 import 'package:car_brand/services/theme_provider.dart';
 import 'package:car_brand/state/lang/lang_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +29,7 @@ class MyApp extends StatelessWidget {
           builder: (context, state) {
             if (state is ChangeLocalState) {
               return MaterialApp(
+                debugShowCheckedModeBanner: false,
                 title: 'Cars Brands',
                 supportedLocales: const [Locale("en"), Locale("ar")],
                 localizationsDelegates:
@@ -47,4 +45,3 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
-// t

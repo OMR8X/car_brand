@@ -1,7 +1,6 @@
 import 'package:car_brand/cubits/data_holder/data_holder_cubit.dart';
 import 'package:car_brand/screens/pick_continent_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StartView extends StatefulWidget {

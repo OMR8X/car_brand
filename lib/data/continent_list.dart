@@ -14,15 +14,15 @@ List<Continent> continents = [
     imagePath: "assets/images/continent/europe.svg",
   ),
   Continent(
-    name: "South America",
-    color: const Color.fromARGB(255, 255, 144, 144),
-    imagePath: "assets/images/continent/south_america.svg",
-  ),
-  Continent(
     name: "North America",
     color: const Color(0xff90EBFF),
     imagePath: "assets/images/continent/north_america.svg",
   ),
+  // Continent(
+  //   name: "South America",
+  //   color: const Color.fromARGB(255, 255, 144, 144),
+  //   imagePath: "assets/images/continent/south_america.svg",
+  // ),
   // Continent(
   //   name: "Africa",
   //   color: const Color(0xffFF90D9),
